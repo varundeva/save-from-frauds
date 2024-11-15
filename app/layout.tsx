@@ -4,9 +4,9 @@ import { stackServerApp } from "../stack";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
+// import { SiteHeader } from "@/components/site-header";
+import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/config/site";
-import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,15 +52,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <Suspense fallback={<>Loading</>}>
-              
-            <div className="container flex-1">{children}</div>
-            </Suspense>
+          <div data-wrapper="" className="border-border/40 dark:border-border">
+            <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
+              <SiteHeader />
+              <main className="flex-1 container">{children}</main>
+            </div>
           </div>
+
         </ThemeProvider>
       </StackTheme></StackProvider></body>
-    </html>
+    </html >
   );
 }
