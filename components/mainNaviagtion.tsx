@@ -14,7 +14,7 @@ export function MainNavigation() {
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
         <Icons.logo className="h-6 w-6" />
-        <span className="hidden font-bold lg:inline-block">
+        <span className="hidden font-bold lg:inline-block text-nowrap">
           {siteConfig.name}
         </span>
       </Link>

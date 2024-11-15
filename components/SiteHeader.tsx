@@ -4,7 +4,6 @@ import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
 import { MainNavigation } from "@/components/mainNaviagtion"
 import { MobileNav } from "@/components/MobileNavigation"
-// import { ModeSwitcher } from "@/components/mode-switcher"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "./theme-toggle"
 import { UserButton } from "@stackframe/stack"
@@ -19,7 +18,7 @@ export function SiteHeader() {
                     <div className="w-full flex-1 md:hidden lg:hidden">
                         <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
                             <Icons.logo className="h-6 w-6" />
-                            <span className="font-bold lg:inline-block">
+                            <span className="font-bold lg:inline-block text-nowrap">
                                 {siteConfig.name}
                             </span>
                         </Link>
