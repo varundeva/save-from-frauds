@@ -20,16 +20,16 @@ export function MainNavigation() {
       </Link>
       <nav className="flex items-center gap-4 text-sm xl:gap-6">
         <Link
-          href="/docs"
+          href="/about"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname === "/docs" ? "text-foreground" : "text-foreground/80"
           )}
         >
-          Docs
+          About Us
         </Link>
         <Link
-          href="/docs/components"
+          href="/contact"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/docs/components") &&
@@ -38,10 +38,10 @@ export function MainNavigation() {
               : "text-foreground/80"
           )}
         >
-          Components
+          Contact Us
         </Link>
         <Link
-          href="/blocks"
+          href="/report"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/blocks")
@@ -49,10 +49,10 @@ export function MainNavigation() {
               : "text-foreground/80"
           )}
         >
-          Blocks
+          Report Fraud
         </Link>
         <Link
-          href="/charts"
+          href="/search"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/docs/component/chart") ||
@@ -61,10 +61,10 @@ export function MainNavigation() {
               : "text-foreground/80"
           )}
         >
-          Charts
+          Search Fraud
         </Link>
         <Link
-          href="/themes"
+          href="/prevention"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/themes")
@@ -72,10 +72,10 @@ export function MainNavigation() {
               : "text-foreground/80"
           )}
         >
-          Themes
+          Fraud Prevention
         </Link>
         <Link
-          href="/colors"
+          href="/blog"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/colors")
@@ -83,7 +83,18 @@ export function MainNavigation() {
               : "text-foreground/80"
           )}
         >
-          Colors
+          Blog
+        </Link>
+        <Link
+          href="/frequently-asked-questions"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/colors")
+              ? "text-foreground"
+              : "text-foreground/80"
+          )}
+        >
+          FAQ
         </Link>
       </nav>
     </div>

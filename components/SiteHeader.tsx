@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
-import { MainNavigation } from "@/components/mainNaviagtion"
+import { MainNavigation } from "@/components/MainNavigation"
 import { MobileNav } from "@/components/MobileNavigation"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "./theme-toggle"
