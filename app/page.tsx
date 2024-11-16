@@ -20,7 +20,7 @@ export default function Home() {
     </div>
     {/* End Gradients */}
 
-    <div className="container relative z-10">
+    <div className="relative z-10">
       {/* Flexbox Layout */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-x-8 xl:gap-x-12">
         {/* Left Section */}
