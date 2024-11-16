@@ -1,7 +1,8 @@
 "use client"
 export default function Loading() {
   
-  return <svg
+  return <div className="flex justify-center items-center h-dvh">
+    <svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 100 100"
   fill="none"
@@ -48,5 +49,6 @@ export default function Loading() {
     }
   `}</style>
 </svg>
+  </div>
 
 }

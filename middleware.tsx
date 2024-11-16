@@ -12,6 +12,6 @@ export async function middleware(request: NextRequest) {
   export const config = {
     // You can add your own route protection logic here
     // Make sure not to protect the root URL, as it would prevent users from accessing static Next.js files or Stack's /handler path
-    matcher: '/about/:path*',
+    matcher: '/about',
   };
   
