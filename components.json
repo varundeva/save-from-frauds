@@ -17,7 +17,9 @@
     "lib": "@/lib",
     "hooks": "@/hooks",
     "config": "@/config",
-    "styles":"@/styles"
+    "styles":"@/styles",
+    "models": "@/models",
+    "schemas": "@/schemas"
   },
   "iconLibrary": "lucide"
 }

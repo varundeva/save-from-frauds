@@ -1,9 +1,11 @@
-import React from 'react'
+"use client"
 
-const page = () => {
+import ReportForm from "@/components/ReportForm";
+
+export default function ReportPage() {
+  
+
   return (
-    <div>Report Fraud</div>
-  )
+    <ReportForm />
+  );
 }
-
-export default page

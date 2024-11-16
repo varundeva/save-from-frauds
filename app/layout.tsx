@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/config/site";
 import SiteFooter from "@/components/SiteFooter";
+import connectToDatabase from "@/lib/mongoose";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,6 +43,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  connectToDatabase();
   return (
     <html lang="en">
       <body
@@ -56,7 +58,7 @@ export default function RootLayout({
           <div data-wrapper="" className="border-border/40 dark:border-border">
             <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
               <SiteHeader />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 container">{children}</main>
               <SiteFooter />
             </div>
           </div>
