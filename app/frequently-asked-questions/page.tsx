@@ -15,8 +15,8 @@ const page = () => {
           Our mission is to provide awareness and support against online frauds. Explore our resources and find ways to protect yourself or report fraud effectively.
         </p>
       </div>
-      <div className="flex justify-between">
-        <div className="w-full px-3">
+      <div className="lg:flex lg:justify-between">
+        <div className="w-full lg:px-3">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>What is the purpose of this platform?</AccordionTrigger>
@@ -70,7 +70,7 @@ const page = () => {
           </Accordion>
 
         </div>
-        <div className="w-full px-3">
+        <div className="w-full lg:px-3">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-9">
               <AccordionTrigger>Is the data I share confidential?</AccordionTrigger>
