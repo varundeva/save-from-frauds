@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm, useFieldArray, SubmitHandler, Controller } from 'react-hook-form';
 import { get } from "lodash"
-
+import { useToast } from "@/hooks/use-toast"
+import { useRouter } from 'next/navigation'
+import { Loader2 } from "lucide-react"
 import {
     Select,
     SelectTrigger,
@@ -22,17 +24,19 @@ import { FormContext, IFraudEntityForm, IImpact, IReportDataForm } from './FormC
 
 
 
+
 const ReportDataForm: React.FC = () => {
-
+    const [isLoading, setIsLoading] = useState(false)
     const formContext = useContext(FormContext);
-
+    const { toast } = useToast()
+    const route = useRouter()
     if (!formContext) {
         throw new Error("Context not found");
     }
 
     const { data, setData, setStep, userData } = formContext;
 
-    const { register, handleSubmit, control, setValue, formState: { errors }, watch, reset, getValues } = useForm<IFraudEntityForm>({
+    const { register, handleSubmit, control, setValue, formState: { errors, isSubmitted }, watch, reset, getValues } = useForm<IFraudEntityForm>({
         defaultValues: data
     });
 
@@ -46,10 +50,9 @@ const ReportDataForm: React.FC = () => {
     }, [data, reset]);
 
     const onSubmit: SubmitHandler<IFraudEntityForm> = async (reportData) => {
-        setData((prev) => {
-            return ({ ...prev, ...reportData, reportedBy: get(userData, 'email', '') })
-        })
+        setIsLoading(true)
         try {
+
             const response = await fetch('/api/report', {
                 method: 'POST',
                 headers: {
@@ -57,11 +60,28 @@ const ReportDataForm: React.FC = () => {
                 },
                 body: JSON.stringify({ ...data, ...reportData, reportedBy: get(userData, 'email', '') }),
             });
+            if (response.status === 201) {
+                setIsLoading(false)
+                setData({})
+                reset({})
+                route.push('/')
+                return toast({
+                    title: "Report created successfully",
+                    description: "Report Submitted, After approval it will be available to view publically",
 
-            const result = await response.json();
-            console.log('Report created successfully:', result);
+                })
+            }
+
         } catch (error) {
             console.error('Error creating report:', error);
+            if (error instanceof Error) {
+                toast({
+                    title: "Something wrong while creating report",
+                    description: error.message,
+                    variant: "destructive"
+                })
+            }
+            setIsLoading(false)
         }
 
     };
@@ -513,7 +533,8 @@ const ReportDataForm: React.FC = () => {
                     }}>
                         Go Back
                     </Button>
-                    <Button type="submit" className="w-full bg-indigo-600 hover:bg-green-700 lg:w-1/3">
+                    <Button type="submit" className="w-full bg-indigo-600 hover:bg-green-700 lg:w-1/3" disabled={isLoading}>
+                        {isLoading && <Loader2 className="animate-spin" />}
                         Submit
                     </Button>
                 </div>

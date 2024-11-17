@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+
 import { FraudEntity } from '@/models/FraudEntity';  // Import FraudEntity model
 import { Report } from '@/models/Report';  // Import Report model
 import { FraudEntitySchema, ReportSchema } from '@/schemas/validationSchemas';
@@ -26,20 +27,14 @@ export async function POST(request: Request) {
             });
             await fraudEntity.save();  // Save the fraud entity
         }
-        const parsedReport = ReportSchema.safeParse(requestBody);  // Validate FraudEntity schema
+        const parsedReport = ReportSchema.safeParse({ ...requestBody, fraudEntityId: fraudEntity?._id?.toString(), });  // Validate FraudEntity schema
         if (!parsedReport.success) {
             return NextResponse.json({ message: parsedReport.error.format() }, { status: 400 });
         }
         // If validation is successful, proceed with database operations
-
         // 3. Create a new report and associate it with the fraud entity
-        const report = new Report({
-            ...parsedReport,
-            fraudEntityId: fraudEntity._id,
-        });
-
+        const report = new Report(parsedReport.data);
         await report.save();  // Save the report
-
         return NextResponse.json({
             message: 'Report created successfully',
             report,

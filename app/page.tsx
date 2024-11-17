@@ -208,12 +208,10 @@ export default function Home() {
                   <BrainCogIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Creative minds
+                    Fraud Protection
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      We choose our teams carefully. Our people are the secret to
-                      great work.
-                    </p>
+                    We focus on detecting and reporting online fraud to protect individuals. Our efforts help users stay informed and secure from scams.                    </p>
                   </div>
                 </div>
                 {/* End Icon Block */}
@@ -222,12 +220,10 @@ export default function Home() {
                   <PackageIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Effortless updates
+                    Data Repository
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      Benefit from automatic updates to all boards any time you need
-                      to make a change to your website.
-                    </p>
+                    Our platform compiles crucial data on various fraud types for easy access. This empowers users to recognize and avoid potential threats.</p>
                   </div>
                 </div>
                 {/* End Icon Block */}
@@ -236,11 +232,10 @@ export default function Home() {
                   <ZapIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Strong empathy
+                    Transparent Support
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      We&apos;ve user tested our own process by shipping over 1k
-                      products for clients.
+                    We offer clear, straightforward assistance to victims of fraud, with no hidden terms. Our goal is to help individuals navigate fraud recovery with complete transparency.
                     </p>
                   </div>
                 </div>
@@ -255,10 +250,10 @@ export default function Home() {
                   <TrophyIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Conquer the best
+                    Fraud Prevention
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      We stay lean and help your product do one thing well.
+                    Through comprehensive background checks, we verify the authenticity of parties before transactions. This proactive approach helps prevent online fraud before it happens.
                     </p>
                   </div>
                 </div>
@@ -268,11 +263,10 @@ export default function Home() {
                   <UsersIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Designing for people
+                    Community Focused
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      We actively pursue the right balance between functionality
-                      and aesthetics, creating delightful experiences.
+                    We actively track and take down phishing sites, fake domains, and fraudulent social media profiles. Our work ensures a safer online environment for everyone.
                     </p>
                   </div>
                 </div>
@@ -282,11 +276,10 @@ export default function Home() {
                   <ThumbsUpIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                   <div className="ms-5 sm:ms-8">
                     <h3 className="text-base sm:text-lg font-semibold">
-                      Simple and affordable
+                    Empowering Users
                     </h3>
                     <p className="mt-1 text-muted-foreground">
-                      From boarding passes to movie tickets, there&apos;s pretty
-                      much nothing you can&apos;t do.
+                    We educate individuals on how to avoid fraud when buying and selling online. By providing resources, we help users make informed, safe decisions.
                     </p>
                   </div>
                 </div>

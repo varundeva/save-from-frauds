@@ -22,6 +22,36 @@ export interface IReport extends Document {
     status: 'open' | 'resolved' | 'closed' | 'progress';
 }
 
+// Define the schema for Impact metadata
+const ImpactMetadataSchema = new Schema(
+    {
+        amount: { type: Number }, // Specific to financial impact
+        currency: { type: String, default: 'INR' }, // Specific to financial impact
+        stress: { type: Boolean }, // Specific to emotional impact
+        anxiety: { type: Boolean }, // Specific to emotional impact
+    },
+    { _id: false } // Disable the creation of _id for this nested schema
+);
+
+// Define the schema for Impact
+const ImpactSchema = new Schema(
+    {
+        type: {
+            type: String,
+            required: true,
+            enum: ['financial', 'emotional', 'reputational', 'other']
+        }, // Impact type
+        details: {
+            type: String,
+            required: true
+        }, // Details about the impact
+        metadata: {
+            type: ImpactMetadataSchema,
+            required: false // metadata is optional, but when present, should match the schema
+        },
+    },
+    { _id: false } // Disable the creation of _id for this nested schema
+);
 const ReportSchema = new Schema<IReport>(
     {
         fraudEntityId: { type: Schema.Types.ObjectId, ref: 'FraudEntity', required: true },
@@ -29,18 +59,8 @@ const ReportSchema = new Schema<IReport>(
         shortDescription: { type: String },
         impact: [
             {
-                type: {
-                    type: String,
-                    required: true,
-                    enum: ['financial', 'emotional', 'reputational', 'other'], // Type of impact
-                },
-                details: { type: String, required: true }, // Details about the impact
-                metadata: {
-                    amount: { type: Number }, // Specific to financial impact
-                    currency: { type: String, default: 'INR' }, // Specific to financial impact
-                    stress: { type: Boolean }, // Specific to emotional impact
-                    anxiety: { type: Boolean }, // Specific to emotional impact
-                },
+                type: ImpactSchema, // Impact schema as an array of objects
+                required: false, // Impact array itself is optional
             },
         ],
         preventionSteps: { type: String },

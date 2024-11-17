@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/config/site";
 import SiteFooter from "@/components/SiteFooter";
+import { Toaster } from "@/components/ui/toaster"
+
 import connectToDatabase from "@/lib/mongoose";
 
 const geistSans = localFont({
@@ -62,7 +64,7 @@ export default function RootLayout({
               <SiteFooter />
             </div>
           </div>
-
+          <Toaster />
         </ThemeProvider>
       </StackTheme></StackProvider></body>
     </html >

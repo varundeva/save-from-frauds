@@ -14,10 +14,10 @@ const ImpactSchema = z.object({
 
 // Zod schema for the Report data
 export const ReportSchema = z.object({
-  fraudEntityId: z.string().uuid('Invalid fraud entity ID'), // Assuming this is a UUID from MongoDB (ObjectId as string)
+  fraudEntityId: z.string().length(24, 'Invalid fraud entity ID'), // Assuming this is a UUID from MongoDB (ObjectId as string)
   longDescription: z.string().min(10, 'Long description must be at least 10 characters'),
   shortDescription: z.string().optional(),
-  impact: z.array(ImpactSchema).min(1, 'At least one impact must be provided'),
+  impact: z.array(ImpactSchema).optional(),
   preventionSteps: z.string().optional(),
   reportedBy: z.string().min(1, 'Reported By is required'),
   status: z.enum(['open', 'resolved', 'closed', 'progress']).default('open'),
