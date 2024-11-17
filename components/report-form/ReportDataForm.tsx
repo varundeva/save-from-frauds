@@ -30,7 +30,7 @@ const ReportDataForm: React.FC = () => {
         throw new Error("Context not found");
     }
 
-    const { data, setData, setStep } = formContext;
+    const { data, setData, setStep, userData } = formContext;
 
     const { register, handleSubmit, control, setValue, formState: { errors }, watch, reset, getValues } = useForm<IFraudEntityForm>({
         defaultValues: data
@@ -45,10 +45,25 @@ const ReportDataForm: React.FC = () => {
         reset(data); // Populate all fields
     }, [data, reset]);
 
-    const onSubmit: SubmitHandler<IFraudEntityForm> = (reportData) => {
+    const onSubmit: SubmitHandler<IFraudEntityForm> = async (reportData) => {
         setData((prev) => {
-            return ({ ...prev, ...reportData })
+            return ({ ...prev, ...reportData, reportedBy: get(userData, 'email', '') })
         })
+        try {
+            const response = await fetch('/api/report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...data, ...reportData, reportedBy: get(userData, 'email', '') }),
+            });
+
+            const result = await response.json();
+            console.log('Report created successfully:', result);
+        } catch (error) {
+            console.error('Error creating report:', error);
+        }
+
     };
 
     return (
@@ -60,10 +75,10 @@ const ReportDataForm: React.FC = () => {
 
             {/* Description */}
             <p className="text-gray-100 mb-6">
-                This form allows you to submit a detailed report regarding an incident of fraud or suspicious activity.<br/>
-                Please provide the necessary information about the type of fraud, the entity involved, and any additional details that will help us understand the situation better.<br/>
-                The more accurate and thorough the information, the better we can assess and take appropriate action.<br/>
-                If you&apos;re unsure about any field, don&apos;t hesitate to refer to the tooltips for guidance.<br/>
+                This form allows you to submit a detailed report regarding an incident of fraud or suspicious activity.<br />
+                Please provide the necessary information about the type of fraud, the entity involved, and any additional details that will help us understand the situation better.<br />
+                The more accurate and thorough the information, the better we can assess and take appropriate action.<br />
+                If you&apos;re unsure about any field, don&apos;t hesitate to refer to the tooltips for guidance.<br />
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mx-auto">
                 {/* Short Description */}

@@ -23,7 +23,7 @@ async function connectToDatabase(): Promise<Connection> {
     mongooseCache.promise = mongoose
       .connect(MONGO_URI)
       .then((mongooseInstance) => {
-        console.log("Connected to MongoDb")
+        console.log("Connected to Database")
         return mongooseInstance.connection
       }); // Resolve to mongoose.Connection
   }

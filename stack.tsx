@@ -6,7 +6,8 @@ export const stackServerApp = new StackServerApp({
   tokenStore: "nextjs-cookie",
   urls: {
     signIn: '/auth/login',
-    signUp:'/auth/register'
+    signUp: '/auth/register',
+    accountSettings: '/auth/account'
   }
-   
+
 });
