@@ -36,7 +36,7 @@ const ReportDataForm: React.FC = () => {
 
     const { data, setData, setStep, userData } = formContext;
 
-    const { register, handleSubmit, control, setValue, formState: { errors, isSubmitted }, watch, reset, getValues } = useForm<IFraudEntityForm>({
+    const { register, handleSubmit, control, setValue, formState: { errors }, watch, reset, getValues } = useForm<IFraudEntityForm>({
         defaultValues: data
     });
 
