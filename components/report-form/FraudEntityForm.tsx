@@ -190,7 +190,7 @@ const ShadCNForm: React.FC = () => {
 
                 {/* Submit Button */}
                 <div className='flex justify-end'>
-                    <Button type="submit" className="w-1/3 bg-indigo-600 hover:bg-indigo-700">
+                    <Button type="submit" className="w-1/3 bg-primary">
                         Next
                     </Button>
                 </div>

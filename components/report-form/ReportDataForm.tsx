@@ -525,7 +525,7 @@ const ReportDataForm: React.FC = () => {
                 </div>
                 {/* Submit Button and Goback button */}
                 <div className='flex justify-between'>
-                    <Button type="button" className="w-full lg:w-1/3 bg-indigo-300 hover:bg-indigo-700" onClick={() => {
+                    <Button type="button" className="w-full lg:w-1/3 bg-secondary text-primary hover:text-secondary" onClick={() => {
                         setStep((prev) => prev - 1);
                         setData((prev) => {
                             return ({ ...prev, ...getValues() })
@@ -533,7 +533,7 @@ const ReportDataForm: React.FC = () => {
                     }}>
                         Go Back
                     </Button>
-                    <Button type="submit" className="w-full bg-indigo-600 hover:bg-green-700 lg:w-1/3" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-primary lg:w-1/3" disabled={isLoading}>
                         {isLoading && <Loader2 className="animate-spin" />}
                         Submit
                     </Button>
