@@ -89,12 +89,12 @@ const ReportDataForm: React.FC = () => {
     return (
         <div className="max-w-2xl mx-auto mt-8">
             {/* Heading */}
-            <h1 className="text-2xl font-bold text-white mb-4">
+            <h1 className="text-2xl font-bold mb-4">
                 Fraud Report Submission
             </h1>
 
             {/* Description */}
-            <p className="text-gray-100 mb-6">
+            <p className=" mb-6">
                 This form allows you to submit a detailed report regarding an incident of fraud or suspicious activity.<br />
                 Please provide the necessary information about the type of fraud, the entity involved, and any additional details that will help us understand the situation better.<br />
                 The more accurate and thorough the information, the better we can assess and take appropriate action.<br />

@@ -57,19 +57,19 @@ const ShadCNForm: React.FC = () => {
     return (
         <div className="max-w-2xl mx-auto mt-8">
             {/* Heading */}
-            <h1 className="text-2xl font-bold text-white mb-4">
+            <h1 className="text-2xl font-bold mb-4">
                 Report a Fraudulent Entity
             </h1>
 
             {/* Description */}
-            <p className="text-gray-100 mb-6">
+            <p className=" mb-6">
                 Help us take action against fraud by providing information about the entity involved.<br />
                 This could be a phone number, email address, or website used in fraudulent activities.<br />
                 Please fill out the form below with accurate details so everyone can be aware of this.
             </p>
 
             {/* Info about form */}
-            <p className="text-gray-400 mb-6">
+            <p className=" mb-6">
                 This will be multi step form<br />
                 Need to provide information in 2 steps.
             </p>
