@@ -52,7 +52,7 @@ export const Contact = () => {
     const { firstName, lastName, email, subject, message } = values;
     console.log(values);
 
-    const mailToLink = `mailto:leomirandadev@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
+    const mailToLink = `mailto:dummy@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
 
     window.location.href = mailToLink;
   }
@@ -74,7 +74,7 @@ export const Contact = () => {
               <Mail />
               <div className="font-bold">Mail US</div>
             </div>
-            <div>leomirandadev@gmail.com</div>
+            <div>test@gmail.com</div>
           </div>        
         </div>
       </div>
@@ -96,7 +96,7 @@ export const Contact = () => {
                       <FormItem className="w-full">
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Leopoldo" {...field} />
+                          <Input placeholder="Jhon" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -109,7 +109,7 @@ export const Contact = () => {
                       <FormItem className="w-full">
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Miranda" {...field} />
+                          <Input placeholder="Doe" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -127,7 +127,7 @@ export const Contact = () => {
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="leomirandadev@gmail.com"
+                            placeholder="email-address@gmail.com"
                             {...field}
                           />
                         </FormControl>
