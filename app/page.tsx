@@ -1,10 +1,9 @@
-import Blog from "@/components/home/Blog";
-import { Community } from "@/components/home/Community";
-import { Contact } from "@/components/home/Contact";
-import Features from "@/components/home/Features";
-import Hero from "@/components/home/Hero";
-import SearchFraud from "@/components/home/SearchFraud";
-
+import Blog from "@/components/home/Blog"
+import { Community } from "@/components/home/Community"
+import { Contact } from "@/components/home/Contact"
+import Features from "@/components/home/Features"
+import Hero from "@/components/home/Hero"
+import SearchFraud from "@/components/home/SearchFraud"
 
 export default function Home() {
   return (
@@ -13,8 +12,8 @@ export default function Home() {
       <SearchFraud />
       <Features />
       <Blog />
-      <Community/>
+      <Community />
       <Contact />
     </div>
-  );
+  )
 }

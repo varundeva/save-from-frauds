@@ -1,43 +1,50 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react"
 
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
 
 const posts = [
   {
-    id: 'post-1',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
+    id: "post-1",
+    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
     summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
-    label: 'Ut varius dolor turpis',
-    author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
+    label: "Ut varius dolor turpis",
+    author: "Jane Doe",
+    published: "1 Jan 2024",
+    href: "#",
+    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
   },
   {
-    id: 'post-2',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
+    id: "post-2",
+    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
     summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
-    label: 'Ut varius dolor turpis',
-    author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
+    label: "Ut varius dolor turpis",
+    author: "Jane Doe",
+    published: "1 Jan 2024",
+    href: "#",
+    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
   },
   {
-    id: 'post-3',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
+    id: "post-3",
+    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
     summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
-    label: 'Ut varius dolor turpis',
-    author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
+    label: "Ut varius dolor turpis",
+    author: "Jane Doe",
+    published: "1 Jan 2024",
+    href: "#",
+    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
   },
-];
+]
 
 const Blog = () => {
   return (
@@ -59,7 +66,10 @@ const Blog = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-6">
           {posts.map((post) => (
-            <Card key={post.id} className="flex flex-col w-full max-w-sm rounded-xl border">
+            <Card
+              key={post.id}
+              className="flex flex-col w-full max-w-sm rounded-xl border"
+            >
               <CardHeader>
                 <div className="overflow-hidden rounded-t-xl">
                   <img
@@ -75,7 +85,10 @@ const Blog = () => {
                 <p className="text-muted-foreground">{post.summary}</p>
               </CardContent>
               <CardFooter className="flex items-center justify-between">
-                <a href={post.href} className="flex items-center text-primary hover:underline">
+                <a
+                  href={post.href}
+                  className="flex items-center text-primary hover:underline"
+                >
                   Read more
                   <ArrowRight className="ml-2 size-4" />
                 </a>
@@ -88,7 +101,7 @@ const Blog = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog

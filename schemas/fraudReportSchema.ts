@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from "zod"
 
 export const fraudEntitySchema = z.object({
   entityType: z.enum(["phone", "email", "website"], {
@@ -25,4 +25,4 @@ export const fraudEntitySchema = z.object({
   status: z.enum(["open", "resolved", "closed", "progress"], {
     required_error: "Status is required",
   }),
-});
+})

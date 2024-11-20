@@ -1,9 +1,7 @@
-import { SignIn } from '@stackframe/stack'
+import { SignIn } from "@stackframe/stack"
 
 const page = () => {
-  return (
-    <SignIn fullPage/>
-  )
+  return <SignIn fullPage />
 }
 
 export default page

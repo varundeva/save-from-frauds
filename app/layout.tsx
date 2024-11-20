@@ -1,22 +1,22 @@
 import "./globals.css"
-import { StackProvider, StackTheme } from "@stackframe/stack";
-import { stackServerApp } from "../stack";
-import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
-import { ThemeProvider } from "@/components/theme-provider";
+import { StackProvider, StackTheme } from "@stackframe/stack"
+import { stackServerApp } from "../stack"
+import type { Metadata, Viewport } from "next"
+import localFont from "next/font/local"
+import { ThemeProvider } from "@/components/theme-provider"
 // import { SiteHeader } from "@/components/site-header";
-import { SiteHeader } from "@/components/SiteHeader";
-import { siteConfig } from "@/config/site";
-import SiteFooter from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader"
+import { siteConfig } from "@/config/site"
+import SiteFooter from "@/components/SiteFooter"
 import { Toaster } from "@/components/ui/toaster"
 
-import connectToDatabase from "@/lib/mongoose";
+import connectToDatabase from "@/lib/mongoose"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-});
+})
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
@@ -38,35 +38,42 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  connectToDatabase();
+  connectToDatabase()
   return (
     <html lang="en">
       <body
         className={`min-h-screen bg-background ${geistSans.variable} antialiased `}
-      ><StackProvider app={stackServerApp}><StackTheme>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div data-wrapper="" className="border-border/40 dark:border-border">
-            <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
-              <SiteHeader />
-              <main className="flex-1 container">{children}</main>
-              <SiteFooter />
-            </div>
-          </div>
-          <Toaster />
-        </ThemeProvider>
-      </StackTheme></StackProvider></body>
-    </html >
-  );
+      >
+        <StackProvider app={stackServerApp}>
+          <StackTheme>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <div
+                data-wrapper=""
+                className="border-border/40 dark:border-border"
+              >
+                <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
+                  <SiteHeader />
+                  <main className="flex-1 container">{children}</main>
+                  <SiteFooter />
+                </div>
+              </div>
+              <Toaster />
+            </ThemeProvider>
+          </StackTheme>
+        </StackProvider>
+      </body>
+    </html>
+  )
 }

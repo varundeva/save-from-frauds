@@ -9,21 +9,13 @@
     "no-console": [
       "error",
       {
-        "allow": [
-          "info",
-          "warn",
-          "error"
-        ]
+        "allow": ["info", "warn", "error"]
       }
     ],
     "tailwindcss/classnames-order": "error",
     "overrides": [
       {
-        "files": [
-          "*.ts",
-          "*.tsx",
-          "*.js"
-        ],
+        "files": ["*.ts", "*.tsx", "*.js"],
         "parser": "@typescript-eslint/parser"
       }
     ]

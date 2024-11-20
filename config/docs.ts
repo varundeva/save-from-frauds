@@ -49,9 +49,10 @@ export const docsConfig: DocsConfig = {
     {
       title: "Blog",
       href: "/blog",
-    },{
-      title:"Frequently Asked Questions",
-      href:"/frequently-asked-questions"
-    }
-  ]
+    },
+    {
+      title: "Frequently Asked Questions",
+      href: "/frequently-asked-questions",
+    },
+  ],
 }
