@@ -14,7 +14,7 @@ const StepForm = () => {
   const { step } = formContext
 
   return (
-    <div className="min-h-screen my-5">
+    <div className="my-5 min-h-screen">
       {/* Conditionally render the forms based on the current step */}
       {step === 1 && <FraudEntityForm />}
       {step === 2 && <ReportDataForm />}

@@ -4,12 +4,11 @@ import * as React from "react"
 import Link, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 
+import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
-
+import { useMetaColor } from "@/hooks/use-meta-color"
 import { Button } from "@/components/ui/button"
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
-import { docsConfig } from "@/config/docs"
-import { useMetaColor } from "@/hooks/use-meta-color"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -28,7 +27,7 @@ export function MobileNav() {
       <DrawerTrigger asChild>
         <Button
           variant="ghost"
-          className="-ml-2 mr-2 h-8 w-8 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+          className="-ml-2 mr-2 size-8 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

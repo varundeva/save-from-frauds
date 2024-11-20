@@ -3,11 +3,11 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/ui/card"
 
 const posts = [
@@ -68,7 +68,7 @@ const Blog = () => {
           {posts.map((post) => (
             <Card
               key={post.id}
-              className="flex flex-col w-full max-w-sm rounded-xl border"
+              className="flex w-full max-w-sm flex-col rounded-xl border"
             >
               <CardHeader>
                 <div className="overflow-hidden rounded-t-xl">

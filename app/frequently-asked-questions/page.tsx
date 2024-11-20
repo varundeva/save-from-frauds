@@ -8,8 +8,8 @@ import {
 const page = () => {
   return (
     <div className="min-h-screen">
-      <div className="w-full p-6 flex flex-col items-center">
-        <h2 className="text-xl font-semibold mb-4">Welcome to Our Platform</h2>
+      <div className="flex w-full flex-col items-center p-6">
+        <h2 className="mb-4 text-xl font-semibold">Welcome to Our Platform</h2>
         <p className="text-gray-400">
           Our mission is to provide awareness and support against online frauds.
           Explore our resources and find ways to protect yourself or report

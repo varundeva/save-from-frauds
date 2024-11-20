@@ -1,9 +1,12 @@
 "use client"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Mail } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   Form,
   FormControl,
@@ -13,7 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import {
   Select,
   SelectContent,
@@ -45,7 +47,6 @@ export const Contact = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { firstName, lastName, email, subject, message } = values
-    console.log(values)
 
     const mailToLink = `mailto:dummy@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`
 
@@ -54,10 +55,10 @@ export const Contact = () => {
 
   return (
     <div className="py-6 sm:py-12">
-      <section className="flex flex-col md:flex-row gap-8">
+      <section className="flex flex-col gap-8 md:flex-row">
         <div className="flex-1">
           <div className="mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Connect With Us</h2>
+            <h2 className="text-3xl font-bold md:text-4xl">Connect With Us</h2>
           </div>
           <p className="mb-8 text-muted-foreground lg:w-5/6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
@@ -65,7 +66,7 @@ export const Contact = () => {
           </p>
           <div className="flex flex-col gap-4">
             <div>
-              <div className="flex gap-2 mb-1">
+              <div className="mb-1 flex gap-2">
                 <Mail />
                 <div className="font-bold">Mail US</div>
               </div>
@@ -76,14 +77,14 @@ export const Contact = () => {
 
         <div className="flex-1">
           <Card className="bg-muted/60 dark:bg-card">
-            <CardHeader className="text-primary text-2xl"> </CardHeader>
+            <CardHeader className="text-2xl text-primary"> </CardHeader>
             <CardContent>
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="flex flex-col gap-4 w-full"
+                  className="flex w-full flex-col gap-4"
                 >
-                  <div className="flex flex-col md:flex-row gap-8">
+                  <div className="flex flex-col gap-8 md:flex-row">
                     <FormField
                       control={form.control}
                       name="firstName"
