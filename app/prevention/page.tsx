@@ -1,34 +1,35 @@
-import { Truck, Mail, Lock, Phone } from "lucide-react"
+import { Lock, Mail, Phone, Truck } from "lucide-react"
+
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "@/components/ui/accordion"
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const FraudAndCyberCrimePrevention = () => {
   const scamTypes = [
     {
       type: "Delivery Scams",
-      icon: <Truck className="w-6 h-6 text-orange-500" />,
+      icon: <Truck className="size-6 text-orange-500" />,
       description:
         "Fake delivery notices or fees to scam personal information.",
     },
     {
       type: "Phishing Emails",
-      icon: <Mail className="w-6 h-6 text-blue-500" />,
+      icon: <Mail className="size-6 text-blue-500" />,
       description:
         "Emails pretending to be from legitimate sources to steal credentials.",
     },
     {
       type: "Ransomware",
-      icon: <Lock className="w-6 h-6 text-purple-500" />,
+      icon: <Lock className="size-6 text-purple-500" />,
       description: "Hackers lock your data and demand a ransom for its return.",
     },
     {
       type: "Digital Arrest Scams",
-      icon: <Phone className="w-6 h-6 text-yellow-500" />,
+      icon: <Phone className="size-6 text-yellow-500" />,
       description:
         "Scammers impersonate police, threatening fake arrests for payment.",
     },
@@ -112,19 +113,19 @@ const FraudAndCyberCrimePrevention = () => {
   ]
 
   return (
-    <div className="p-6 min-h-screen">
+    <div className="min-h-screen p-6">
       {/* Header */}
-      <header className="text-center mb-12">
+      <header className="mb-12 text-center">
         <h1 className="text-4xl font-bold ">Fraud & Cybercrime Prevention</h1>
-        <p className="text-lg mt-2">
+        <p className="mt-2 text-lg">
           Comprehensive information to keep you safe from modern scams.
         </p>
       </header>
 
       {/* Scam Types */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Types of Scams</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="mb-6 text-2xl font-semibold">Types of Scams</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {scamTypes.map((scam, index) => (
             <Card key={index}>
               <CardHeader className="flex items-center space-x-4">
@@ -141,10 +142,10 @@ const FraudAndCyberCrimePrevention = () => {
 
       <div className="flex flex-wrap">
         {/* Prevention Tips (Should take only as much space as its content) */}
-        <div className="w-full md:w-1/2 mb-12 flex-shrink-0">
-          <h2 className="text-2xl font-semibold mb-6">How to Stay Safe</h2>
+        <div className="mb-12 w-full shrink-0 md:w-1/2">
+          <h2 className="mb-6 text-2xl font-semibold">How to Stay Safe</h2>
           <div>
-            <ul className="list-disc list-inside ">
+            <ul className="list-inside list-disc ">
               {preventionTips.map((tip, index) => (
                 <li key={index} className="mb-2">
                   {tip}
@@ -155,8 +156,8 @@ const FraudAndCyberCrimePrevention = () => {
         </div>
 
         {/* FAQ with Accordion (Fills remaining space) */}
-        <div className="w-full md:w-1/2 mb-12">
-          <h2 className="text-2xl font-semibold mb-6">
+        <div className="mb-12 w-full md:w-1/2">
+          <h2 className="mb-6 text-2xl font-semibold">
             Frequently Asked Questions
           </h2>
           <Accordion type="single" collapsible>

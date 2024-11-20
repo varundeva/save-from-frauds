@@ -1,29 +1,30 @@
 import React, { useContext, useEffect, useState } from "react"
-import {
-  useForm,
-  useFieldArray,
-  SubmitHandler,
-  Controller,
-} from "react-hook-form"
-import { get } from "lodash"
-import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
+import { get } from "lodash"
 import { Loader2 } from "lucide-react"
 import {
+  Controller,
+  SubmitHandler,
+  useFieldArray,
+  useForm,
+} from "react-hook-form"
+
+import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
 import {
   Tooltip,
-  TooltipTrigger,
   TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip"
 
 import {
@@ -105,9 +106,9 @@ const ReportDataForm: React.FC = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-8">
+    <div className="mx-auto mt-8 max-w-2xl">
       {/* Heading */}
-      <h1 className="text-2xl font-bold mb-4">Fraud Report Submission</h1>
+      <h1 className="mb-4 text-2xl font-bold">Fraud Report Submission</h1>
 
       {/* Description */}
       <p className=" mb-6">
@@ -125,23 +126,23 @@ const ReportDataForm: React.FC = () => {
         the tooltips for guidance.
         <br />
       </p>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mx-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="mx-auto space-y-4">
         {/* Short Description */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="mb-1 block text-sm font-medium">
             <span>Short Description</span>
-            <span className="text-red-500 ml-1">*</span>
+            <span className="ml-1 text-red-500">*</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -151,7 +152,7 @@ const ReportDataForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Provide a brief overview of the fraudulent activity. This is a
                   quick summary to describe the fraud in one or two sentences.
                   For example, &quot;Received a phishing email claiming to be
@@ -167,27 +168,27 @@ const ReportDataForm: React.FC = () => {
             placeholder="Enter short description"
           />
           {errors.shortDescription && (
-            <p className="text-red-500 text-sm">
+            <p className="text-sm text-red-500">
               {errors.shortDescription.message}
             </p>
           )}
         </div>
         {/* Long Description */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="mb-1 block text-sm font-medium">
             <span>Long Description</span>
-            <span className="text-red-500 ml-1">*</span>
+            <span className="ml-1 text-red-500">*</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -197,7 +198,7 @@ const ReportDataForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Explain the fraudulent activity in detail. Include all
                   relevant information about the fraud, such as when it
                   occurred, how you were targeted, the actions taken by the
@@ -215,26 +216,26 @@ const ReportDataForm: React.FC = () => {
             placeholder="Enter detailed description"
           />
           {errors.longDescription && (
-            <p className="text-red-500 text-sm">
+            <p className="text-sm text-red-500">
               {errors.longDescription.message}
             </p>
           )}
         </div>
         {/* Impact */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="mb-2 block text-sm font-medium">
             <span>Impacts</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -244,7 +245,7 @@ const ReportDataForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Describe how this fraud has affected you. Impacts can be
                   financial, emotional, reputational, or other. For example, a
                   financial impact could involve losing money, while an
@@ -264,23 +265,23 @@ const ReportDataForm: React.FC = () => {
           {fields.map((field, index) => (
             <div
               key={field.id}
-              className="space-y-2 border p-4 rounded-md my-4"
+              className="my-4 space-y-2 rounded-md border p-4"
             >
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="mb-1 block text-sm font-medium">
                   <span>Select Impact Type</span>
-                  <span className="text-red-500 ml-1">*</span>
+                  <span className="ml-1 text-red-500">*</span>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                        <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-4 h-4"
+                            className="size-4"
                           >
                             <path
                               strokeLinecap="round"
@@ -290,7 +291,7 @@ const ReportDataForm: React.FC = () => {
                           </svg>
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                      <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                         Select the type of impact caused by this fraud. You can
                         choose from Financial, Emotional, Reputational, or
                         Other. This helps us understand the kind of harm the
@@ -328,27 +329,27 @@ const ReportDataForm: React.FC = () => {
                   )}
                 />
                 {get(errors, `impact.${index}.type`) && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="mt-1 text-sm text-red-500">
                     {get(errors, `impact.${index}.type.message`)}
                   </p>
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="mb-1 block text-sm font-medium">
                   <span>Impact Details</span>
-                  <span className="text-red-500 ml-1">*</span>
+                  <span className="ml-1 text-red-500">*</span>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                        <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-4 h-4"
+                            className="size-4"
                           >
                             <path
                               strokeLinecap="round"
@@ -358,7 +359,7 @@ const ReportDataForm: React.FC = () => {
                           </svg>
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                      <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                         Provide additional details about the impact. Explain how
                         the fraud affected you. For instance, if the type is
                         financial, specify the monetary loss. If emotional,
@@ -374,7 +375,7 @@ const ReportDataForm: React.FC = () => {
                   placeholder="Enter details about the impact"
                 />
                 {get(errors, `impact.${index}.details`) && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="mt-1 text-sm text-red-500">
                     {get(errors, `impact.${index}.details.message`)}
                   </p>
                 )}
@@ -384,20 +385,20 @@ const ReportDataForm: React.FC = () => {
                 <div className="flex gap-4">
                   {/* Metadata: Financial */}
                   <div>
-                    <label className="block text-sm font-medium mb-1">
+                    <label className="mb-1 block text-sm font-medium">
                       <span>Amount</span>
-                      <span className="text-red-500 ml-1">*</span>
+                      <span className="ml-1 text-red-500">*</span>
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                            <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-4 h-4"
+                                className="size-4"
                               >
                                 <path
                                   strokeLinecap="round"
@@ -407,7 +408,7 @@ const ReportDataForm: React.FC = () => {
                               </svg>
                             </span>
                           </TooltipTrigger>
-                          <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                          <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                             Enter the approximate amount of money lost due to
                             the fraud
                           </TooltipContent>
@@ -422,26 +423,26 @@ const ReportDataForm: React.FC = () => {
                       placeholder="Amount (Financial Impact)"
                     />
                     {get(errors, `impact.${index}.metadata.amount`) && (
-                      <p className="text-red-500 text-sm mt-1">
+                      <p className="mt-1 text-sm text-red-500">
                         {get(errors, `impact.${index}.metadata.amount.message`)}
                       </p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">
+                    <label className="mb-1 block text-sm font-medium">
                       <span>Currency</span>
-                      <span className="text-red-500 ml-1">*</span>
+                      <span className="ml-1 text-red-500">*</span>
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                            <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-4 h-4"
+                                className="size-4"
                               >
                                 <path
                                   strokeLinecap="round"
@@ -451,7 +452,7 @@ const ReportDataForm: React.FC = () => {
                               </svg>
                             </span>
                           </TooltipTrigger>
-                          <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                          <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                             Select the relevant currency (e.g., USD, EUR).
                           </TooltipContent>
                         </Tooltip>
@@ -466,7 +467,7 @@ const ReportDataForm: React.FC = () => {
                       defaultValue="INR"
                     />
                     {get(errors, `impact.${index}.metadata.currency`) && (
-                      <p className="text-red-500 text-sm mt-1">
+                      <p className="mt-1 text-sm text-red-500">
                         {get(
                           errors,
                           `impact.${index}.metadata.currency.message`
@@ -521,19 +522,19 @@ const ReportDataForm: React.FC = () => {
         </div>
         {/* Prevention Steps */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="mb-1 block text-sm font-medium">
             <span>Prevention Steps</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -543,7 +544,7 @@ const ReportDataForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Describe any steps you took to prevent or mitigate the fraud.
                   For example, did you block a phone number, report the fraud to
                   authorities, or change your passwords? This information helps
@@ -559,19 +560,19 @@ const ReportDataForm: React.FC = () => {
         </div>
         {/* Status */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="mb-1 block text-sm font-medium">
             <span>Status</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -581,7 +582,7 @@ const ReportDataForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Indicate the current status of the fraud case.
                   <br />
                   Choose one of the following:
@@ -633,14 +634,14 @@ const ReportDataForm: React.FC = () => {
             )}
           />
           {errors.status && (
-            <p className="text-red-500 text-sm">{errors.status.message}</p>
+            <p className="text-sm text-red-500">{errors.status.message}</p>
           )}
         </div>
         {/* Submit Button and Goback button */}
         <div className="flex justify-between">
           <Button
             type="button"
-            className="w-full lg:w-1/3 bg-secondary text-primary hover:text-secondary"
+            className="w-full bg-secondary text-primary hover:text-secondary lg:w-1/3"
             onClick={() => {
               setStep((prev) => prev - 1)
               setData((prev) => {

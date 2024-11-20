@@ -2,7 +2,7 @@ import { Globe, Target } from "lucide-react"
 
 const page = () => {
   return (
-    <div className="container mx-auto p-6 space-y-8">
+    <div className="container mx-auto space-y-8 p-6">
       <h1 className="text-xl font-bold">About Us</h1>
       {/* Introductory Paragraphs */}
       <div className="space-y-4">
@@ -28,11 +28,11 @@ const page = () => {
       </div>
 
       {/* Vision and Mission Section */}
-      <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+      <div className="flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
         {/* Vision Card */}
-        <div className="flex-1 shadow-lg rounded-lg py-6">
+        <div className="flex-1 rounded-lg py-6 shadow-lg">
           <div className="flex items-center space-x-4">
-            <Globe className="w-8 h-8" />
+            <Globe className="h-8 w-8" />
             <h2 className="text-xl font-bold">Our Vision</h2>
           </div>
           <p className="mt-4">
@@ -45,9 +45,9 @@ const page = () => {
         </div>
 
         {/* Mission Card */}
-        <div className="flex-1 shadow-lg rounded-lg py-6">
+        <div className="flex-1 rounded-lg py-6 shadow-lg">
           <div className="flex items-center space-x-4">
-            <Target className="w-8 h-8" />
+            <Target className="h-8 w-8" />
             <h2 className="text-xl font-bold">Our Mission</h2>
           </div>
           <p className="mt-4">

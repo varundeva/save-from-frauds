@@ -12,19 +12,19 @@ const Features = () => {
     <div className="py-3 lg:py-4">
       <hr className="border-secondary" />
       <div className="mx-auto py-10">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
+        <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-5xl">
           Key Features
         </h2>
 
         {/* Flex Container */}
-        <div className="flex flex-wrap -mx-3 py-10">
+        <div className="-mx-3 flex flex-wrap py-10">
           {/* First Column */}
-          <div className="w-full md:w-1/2 px-3 space-y-6 lg:space-y-10">
+          <div className="w-full space-y-6 px-3 md:w-1/2 lg:space-y-10">
             {/* Icon Block */}
             <div className="flex">
-              <BrainCogIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <BrainCogIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Fraud Protection
                 </h3>
                 <p className="mt-1 text-muted-foreground">
@@ -37,9 +37,9 @@ const Features = () => {
             {/* End Icon Block */}
             {/* Icon Block */}
             <div className="flex">
-              <PackageIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <PackageIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Data Repository
                 </h3>
                 <p className="mt-1 text-muted-foreground">
@@ -52,9 +52,9 @@ const Features = () => {
             {/* End Icon Block */}
             {/* Icon Block */}
             <div className="flex">
-              <ZapIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <ZapIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Transparent Support
                 </h3>
                 <p className="mt-1 text-muted-foreground">
@@ -69,12 +69,12 @@ const Features = () => {
           {/* End First Column */}
 
           {/* Second Column */}
-          <div className="w-full md:w-1/2 px-3 space-y-6 lg:space-y-10">
+          <div className="w-full space-y-6 px-3 md:w-1/2 lg:space-y-10">
             {/* Icon Block */}
             <div className="flex">
-              <TrophyIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <TrophyIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Fraud Prevention
                 </h3>
                 <p className="mt-1 text-muted-foreground">
@@ -87,9 +87,9 @@ const Features = () => {
             {/* End Icon Block */}
             {/* Icon Block */}
             <div className="flex">
-              <UsersIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <UsersIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Community Focused
                 </h3>
                 <p className="mt-1 text-muted-foreground">
@@ -102,9 +102,9 @@ const Features = () => {
             {/* End Icon Block */}
             {/* Icon Block */}
             <div className="flex">
-              <ThumbsUpIcon className="flex-shrink-0 mt-2 h-8 w-8" />
+              <ThumbsUpIcon className="mt-2 size-8 shrink-0" />
               <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
+                <h3 className="text-base font-semibold sm:text-lg">
                   Empowering Users
                 </h3>
                 <p className="mt-1 text-muted-foreground">

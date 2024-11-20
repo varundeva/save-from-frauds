@@ -1,6 +1,3 @@
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
 import {
   BriefcaseIcon,
   FlowerIcon,
@@ -10,6 +7,10 @@ import {
   SearchIcon,
   SettingsIcon,
 } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 const SearchFraud = () => {
   return (
@@ -25,10 +26,10 @@ const SearchFraud = () => {
             to recognize potential threats, protect your personal data, and
             navigate the digital world with confidence.
           </p>
-          <div className="mt-7 sm:mt-12 mx-auto max-w-xl relative">
+          <div className="relative mx-auto mt-7 max-w-xl sm:mt-12">
             {/* Form */}
             <form>
-              <div className="relative z-10 flex space-x-3 p-3 border bg-background rounded-lg shadow-lg">
+              <div className="relative z-10 flex space-x-3 rounded-lg border bg-background p-3 shadow-lg">
                 <div className="flex-[1_0_0%]">
                   <Label htmlFor="article" className="sr-only">
                     Search frauds
@@ -49,9 +50,9 @@ const SearchFraud = () => {
             </form>
             {/* End Form */}
             {/* SVG Element */}
-            <div className="hidden md:block absolute top-0 end-0 -translate-y-12 translate-x-20">
+            <div className="absolute end-0 top-0 hidden -translate-y-12 translate-x-20 md:block">
               <svg
-                className="w-16 h-auto text-orange-500"
+                className="h-auto w-16 text-orange-500"
                 width={121}
                 height={135}
                 viewBox="0 0 121 135"
@@ -80,9 +81,9 @@ const SearchFraud = () => {
             </div>
             {/* End SVG Element */}
             {/* SVG Element */}
-            <div className="hidden md:block absolute bottom-0 start-0 translate-y-10 -translate-x-32">
+            <div className="absolute bottom-0 start-0 hidden -translate-x-32 translate-y-10 md:block">
               <svg
-                className="w-40 h-auto text-cyan-500"
+                className="h-auto w-40 text-cyan-500"
                 width={347}
                 height={188}
                 viewBox="0 0 347 188"
@@ -99,29 +100,29 @@ const SearchFraud = () => {
             </div>
             {/* End SVG Element */}
           </div>
-          <div className="mt-10 sm:mt-20 flex flex-wrap gap-2 justify-center">
+          <div className="mt-10 flex flex-wrap justify-center gap-2 sm:mt-20">
             <Button variant={"outline"} size={"sm"}>
-              <BriefcaseIcon className="flex-shrink-0 w-3 h-auto mr-2" />
+              <BriefcaseIcon className="mr-2 h-auto w-3 shrink-0" />
               Business
             </Button>
             <Button variant={"outline"} size={"sm"}>
-              <SettingsIcon className="flex-shrink-0 w-3 h-auto mr-2" />
+              <SettingsIcon className="mr-2 h-auto w-3 shrink-0" />
               Strategy
             </Button>
             <Button variant={"outline"} size={"sm"}>
-              <HeartIcon className="flex-shrink-0 w-3 h-auto mr-2" />
+              <HeartIcon className="mr-2 h-auto w-3 shrink-0" />
               Health
             </Button>
             <Button variant={"outline"} size={"sm"}>
-              <LightbulbIcon className="flex-shrink-0 w-3 h-auto mr-2" />
+              <LightbulbIcon className="mr-2 h-auto w-3 shrink-0" />
               Creative
             </Button>
             <Button variant={"outline"} size={"sm"}>
-              <FlowerIcon className="flex-shrink-0 w-3 h-auto mr-2" />
+              <FlowerIcon className="mr-2 h-auto w-3 shrink-0" />
               Environment
             </Button>
             <Button variant={"outline"} size={"sm"}>
-              <MountainSnow className="flex-shrink-0 w-3 h-auto mr-2" />
+              <MountainSnow className="mr-2 h-auto w-3 shrink-0" />
               Adventure
             </Button>
           </div>

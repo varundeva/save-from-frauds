@@ -1,21 +1,23 @@
 import React, { useContext, useEffect } from "react"
-import { useForm, SubmitHandler, Controller } from "react-hook-form"
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
+
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import {
   Tooltip,
-  TooltipTrigger,
   TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip"
+
 import { FormContext } from "./FormContext"
 
 interface FormData {
@@ -59,9 +61,9 @@ const ShadCNForm: React.FC = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-8">
+    <div className="mx-auto mt-8 max-w-2xl">
       {/* Heading */}
-      <h1 className="text-2xl font-bold mb-4">Report a Fraudulent Entity</h1>
+      <h1 className="mb-4 text-2xl font-bold">Report a Fraudulent Entity</h1>
 
       {/* Description */}
       <p className=" mb-6">
@@ -82,22 +84,22 @@ const ShadCNForm: React.FC = () => {
         Need to provide information in 2 steps.
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mx-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="mx-auto space-y-4">
         <div>
           <Label>
             <span>Entity/Fraud Type</span>
-            <span className="text-red-500 ml-1">*</span>
+            <span className="ml-1 text-red-500">*</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex align-text-bottom ml-1 cursor-pointer text-gray-400">
+                  <span className="ml-1 inline-flex cursor-pointer align-text-bottom text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -107,7 +109,7 @@ const ShadCNForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Select the type of entity involved in the fraud. This could be
                   a phone number used for scam calls, an email address used for
                   phishing, or a website used to deceive victims.
@@ -138,7 +140,7 @@ const ShadCNForm: React.FC = () => {
             )}
           />
           {errors.entityType && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-500">
               {errors?.entityType?.message}
             </p>
           )}
@@ -148,18 +150,18 @@ const ShadCNForm: React.FC = () => {
         <div>
           <Label>
             Entity Identifier
-            <span className="text-red-500 ml-1">*</span>
+            <span className="ml-1 text-red-500">*</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex items-center ml-2 cursor-pointer text-gray-400">
+                  <span className="ml-2 inline-flex cursor-pointer items-center text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="size-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -169,7 +171,7 @@ const ShadCNForm: React.FC = () => {
                     </svg>
                   </span>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-700 text-white p-2 rounded-md shadow-md max-w-xs">
+                <TooltipContent className="max-w-xs rounded-md bg-gray-700 p-2 text-white shadow-md">
                   Provide the specific details of the entity you selected above.
                   For example, enter the phone number (e.g., +123456789), email
                   address (e.g., example@example.com), or website URL (e.g.,
@@ -212,7 +214,7 @@ const ShadCNForm: React.FC = () => {
             }
           />
           {errors.entityIdentifier && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-500">
               {errors?.entityIdentifier?.message}
             </p>
           )}

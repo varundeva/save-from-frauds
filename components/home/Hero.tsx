@@ -1,16 +1,17 @@
 import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden py-18 lg:py-24">
+    <div className="py-18 relative overflow-hidden lg:py-24">
       {/* Gradients */}
       <div
         aria-hidden="true"
-        className="flex absolute -top-96 start-1/2 transform -translate-x-1/2"
+        className="absolute -top-96 start-1/2 flex -translate-x-1/2"
       >
-        <div className="bg-gradient-to-r from-background/50 to-background blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem]" />
-        <div className="bg-gradient-to-tl blur-3xl w-[90rem] h-[50rem] rounded-full origin-top-left -rotate-12 -translate-x-[15rem] from-primary-foreground via-primary-foreground to-background" />
+        <div className="h-[44rem] w-[25rem] -translate-x-40 rotate-[-60deg] bg-gradient-to-r from-background/50 to-background blur-3xl" />
+        <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-60 -rotate-12 rounded-full bg-gradient-to-tl from-primary-foreground via-primary-foreground to-background blur-3xl" />
       </div>
       {/* End Gradients */}
       <div className="relative z-10">
@@ -19,7 +20,7 @@ const Hero = () => {
           {/* Left Section */}
           <div className="lg:w-3/7">
             <div className="py-10 lg:py-16">
-              <div className="max-w-2xl text-center mx-auto">
+              <div className="mx-auto max-w-2xl text-center">
                 <p className="">Elevate your projects</p>
                 {/* Title */}
                 <div className="mt-5 max-w-2xl">
@@ -36,7 +37,7 @@ const Hero = () => {
                   </p>
                 </div>
                 {/* Buttons */}
-                <div className="mt-8 gap-3 flex justify-center">
+                <div className="mt-8 flex justify-center gap-3">
                   <Link href="/report">
                     <Button size={"lg"}>Report Frauds</Button>
                   </Link>
