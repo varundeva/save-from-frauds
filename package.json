@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -41,6 +43,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/lodash": "^4.17.13",
     "@types/mongoose": "^5.11.97",
@@ -51,6 +55,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.18",
     "eslint-plugin-tailwindcss": "^3.17.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "postcss": "^8",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.9",
@@ -59,5 +65,14 @@
   },
   "engines": {
     "node": ">18.8.x"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   }
 }
