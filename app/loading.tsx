@@ -1,7 +1,7 @@
 "use client"
 export default function Loading() {
   return (
-    <div className="flex justify-center items-center h-dvh">
+    <div className="flex h-dvh items-center justify-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
