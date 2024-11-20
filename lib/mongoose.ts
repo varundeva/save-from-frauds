@@ -25,6 +25,7 @@ async function connectToDatabase(): Promise<Connection> {
     mongooseCache.promise = mongoose
       .connect(MONGO_URI)
       .then((mongooseInstance) => {
+        // eslint-disable-next-line no-console
         console.log("Connected to Database")
         return mongooseInstance.connection
       }) // Resolve to mongoose.Connection
