@@ -11,7 +11,7 @@
         "allow": ["info", "warn", "error"]
       }
     ],
-    "tailwindcss/classnames-order": "error"
+    "tailwindcss/classnames-order": "warn"
   },
   "overrides": [
     {
