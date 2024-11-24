@@ -23,51 +23,16 @@ export function MainNavigation() {
           href="/about"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname === "/docs" ? "text-foreground" : "text-foreground/80"
+            pathname === "/about" ? "text-foreground" : "text-foreground/80"
           )}
         >
           About Us
         </Link>
         <Link
-          href="/contact"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/docs/components") &&
-              !pathname?.startsWith("/docs/component/chart")
-              ? "text-foreground"
-              : "text-foreground/80"
-          )}
-        >
-          Contact Us
-        </Link>
-        <Link
-          href="/report"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/blocks")
-              ? "text-foreground"
-              : "text-foreground/80"
-          )}
-        >
-          Report Fraud
-        </Link>
-        <Link
-          href="/search"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/docs/component/chart") ||
-              pathname?.startsWith("/charts")
-              ? "text-foreground"
-              : "text-foreground/80"
-          )}
-        >
-          Search Fraud
-        </Link>
-        <Link
           href="/prevention"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/themes")
+            pathname?.startsWith("/prevention")
               ? "text-foreground"
               : "text-foreground/80"
           )}
@@ -75,10 +40,33 @@ export function MainNavigation() {
           Fraud Prevention
         </Link>
         <Link
+          href="/search"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/docs/component/chart") ||
+              pathname?.startsWith("/search")
+              ? "text-foreground"
+              : "text-foreground/80"
+          )}
+        >
+          Search Fraud
+        </Link>
+        <Link
+          href="/report"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/report")
+              ? "text-foreground"
+              : "text-foreground/80"
+          )}
+        >
+          Report Fraud
+        </Link>
+        <Link
           href="/blog"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/colors")
+            pathname?.startsWith("/blog")
               ? "text-foreground"
               : "text-foreground/80"
           )}
@@ -89,12 +77,23 @@ export function MainNavigation() {
           href="/frequently-asked-questions"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/colors")
+            pathname?.startsWith("/frequently-asked-questions")
               ? "text-foreground"
               : "text-foreground/80"
           )}
         >
           FAQ
+        </Link>
+        <Link
+          href="/contact"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/contact")
+              ? "text-foreground"
+              : "text-foreground/80"
+          )}
+        >
+          Contact Us
         </Link>
       </nav>
     </div>

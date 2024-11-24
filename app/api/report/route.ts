@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server"
-
 import { FraudEntity } from "@/models/FraudEntity" // Import FraudEntity model
 import { Report } from "@/models/Report" // Import Report model
 import { FraudEntitySchema, ReportSchema } from "@/schemas/validationSchemas"
+import mongoose from "mongoose"
 
 export async function POST(request: Request) {
   try {
@@ -64,5 +64,65 @@ export async function POST(request: Request) {
         { status: 500 }
       )
     }
+  }
+}
+
+export async function GET(request: Request) {
+  try {
+    // Extract the query parameter from the URL
+    const url = new URL(request.url)
+    const entityId = url.searchParams.get("entityId") // Search parameter for query
+
+    // If entityIdentifier is not provided, return an error
+    if (!entityId) {
+      return NextResponse.json(
+        { message: "entityId is required" },
+        { status: 400 }
+      )
+    }
+
+    // Perform a case-insensitive search for the entityIdentifier using $regex
+    const fraudEntity = await FraudEntity.aggregate([
+      {
+        $match: {
+          _id: new mongoose.Types.ObjectId(entityId),
+        },
+      },
+      {
+        $lookup: {
+          from: "reports", // The Report collection
+          localField: "_id", // The `_id` in FraudEntity
+          foreignField: "fraudEntityId", // The `fraudEntityId` in Report
+          as: "reports", // Embed the matched reports as an array
+        },
+      },
+      {
+        $group: {
+          _id: "$_id", // Group by the FraudEntity's ID
+          entityType: { $first: "$entityType" },
+          entityIdentifier: { $first: "$entityIdentifier" },
+          createdAt: { $first: "$createdAt" },
+          updatedAt: { $first: "$updatedAt" },
+          reports: { $push: "$reports" }, // Collect all reports in an array
+        },
+      },
+    ])
+
+    // If no fraud entity is found, return a 404
+    if (!fraudEntity?.length) {
+      return NextResponse.json(
+        { message: "No matching fraud entity found" },
+        { status: 404 }
+      )
+    }
+
+    // Return the found fraud entity
+    return NextResponse.json(fraudEntity, { status: 200 })
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json(
+      { message: "Something went wrong while searching for fraud entities" },
+      { status: 500 }
+    )
   }
 }

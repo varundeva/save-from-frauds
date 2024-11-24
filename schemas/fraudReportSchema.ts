@@ -13,7 +13,10 @@ export const fraudEntitySchema = z.object({
         type: z.enum(["financial", "emotional", "reputational", "other"]),
         details: z.string().nonempty("Details about the impact are required"),
         metadata: z.object({
-          amount: z.number().optional(),
+          amount: z
+            .union([z.number(), z.string()])
+            .optional()
+            .transform((val) => (typeof val === "string" ? Number(val) : val)),
           currency: z.string().optional(),
           stress: z.boolean().optional(),
           anxiety: z.boolean().optional(),

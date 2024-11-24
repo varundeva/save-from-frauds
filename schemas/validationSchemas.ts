@@ -6,7 +6,10 @@ const ImpactSchema = z.object({
   details: z.string().min(1, "Impact details are required"),
   metadata: z
     .object({
-      amount: z.number().optional(),
+      amount: z
+        .union([z.number(), z.string()])
+        .optional()
+        .transform((val) => (typeof val === "string" ? Number(val) : val)),
       currency: z.string().default("INR"),
       stress: z.boolean().optional(),
       anxiety: z.boolean().optional(),
