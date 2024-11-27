@@ -1,15 +1,16 @@
 "use client"
 
 import React, { useState } from "react"
+import axios from "axios"
 import { AlertCircle, Info, Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import SearchResult from "@/components/search-entity/SearchResult"
 
 const SearchPage = () => {
   const [query, setQuery] = useState("")
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState<ResultObject[]>([])
   const [loading, setLoading] = useState(false)
 
   // Example educational tips
@@ -18,34 +19,21 @@ const SearchPage = () => {
     "Avoid clicking on suspicious links from unknown sources.",
     "Verify website URLs before entering sensitive data.",
   ]
+  interface ResultObject {
+    id: string
+    entityIdentifier: string
+    entityType: string
+    createdAt: Date
+  }
 
   const handleSearch = async () => {
     if (!query.trim()) return
-
     setLoading(true)
-
-    // Simulate an API call
-    setTimeout(() => {
-      setResults([
-        {
-          id: 1,
-          type: "Phishing Email",
-          value: "example@gmail.com",
-          description: "Reported for sending fake invoices.",
-          reports: 15,
-          date: "2024-11-10",
-        },
-        {
-          id: 2,
-          type: "Scam Website",
-          value: "fake-website.com",
-          description: "Pretends to be a shopping portal.",
-          reports: 50,
-          date: "2024-11-15",
-        },
-      ])
-      setLoading(false)
-    }, 1500)
+    const { data } = await axios.get(`/api/search?query=${query}`)
+    setLoading(false)
+    if (data.length) {
+      setResults(data)
+    }
   }
 
   return (
@@ -86,34 +74,17 @@ const SearchPage = () => {
               </p>
             </div>
           )}
+
           {!loading &&
-            results.map((result) => {
+            results.map((result, index) => {
               return (
-                <Card key={result.id} className="mb-4">
-                  <CardHeader className="flex items-center justify-between">
-                    <h2 className="font-bold ">{result.type}</h2>
-                    <p className="text-sm ">{result.date}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="">
-                      <span className="font-semibold">Value:</span>{" "}
-                      {result.value}
-                    </p>
-                    <p className="mt-1 ">
-                      <span className="font-semibold">Description:</span>{" "}
-                      {result.description}
-                    </p>
-                    <p className="mt-1 ">
-                      <span className="font-semibold">Reports:</span>{" "}
-                      {result.reports}
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="link" size="sm">
-                      View Full Details
-                    </Button>
-                  </CardFooter>
-                </Card>
+                <SearchResult
+                  id={result?.id}
+                  entityIdentifier={result?.entityIdentifier}
+                  entityType={result?.entityType}
+                  createdAt={result?.createdAt}
+                  key={index}
+                />
               )
             })}
         </div>

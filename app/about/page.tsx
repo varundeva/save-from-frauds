@@ -2,7 +2,7 @@ import { Globe, Target } from "lucide-react"
 
 const page = () => {
   return (
-    <div className="container mx-auto space-y-8 p-6">
+    <div className="container mx-auto min-h-screen space-y-8 p-6">
       <h1 className="text-xl font-bold">About Us</h1>
       {/* Introductory Paragraphs */}
       <div className="space-y-4">

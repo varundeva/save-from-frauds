@@ -30,7 +30,7 @@ export async function GET(request: Request) {
     }
 
     // Perform a case-insensitive search for the entityIdentifier using $regex
-    const fraudEntity = await FraudEntity.findOne({
+    const fraudEntity = await FraudEntity.find({
       entityIdentifier: { $regex: query, $options: "i" },
     })
 
