@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center" id="title">Save From Frauds</h1>
 
-## Getting Started
+<p align="center"><img src="https://socialify.git.ci/varundeva/save-from-frauds/image?description=1&amp;descriptionEditable=Save%20From%20Frauds%20identifies%20and%20tracks%20fraudulent%20entities%2C%20linking%20detailed%20reports%20for%20awareness.&amp;font=Source%20Code%20Pro&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;pulls=1&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
 
-First, run the development server:
+<p id="description">Save From Frauds is a comprehensive application designed to track and report fraudulent entities (e.g. phone numbers emails websites) and their associated impacts. Users can log detailed reports describing the nature of the fraud its impact (financial emotional reputational etc.) and preventive measures to avoid similar scams. The system provides a seamless way to link multiple reports to a single fraudulent entity for better tracking and analysis.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<h2>🚀 Demo</h2>
+
+[save-from-frauds.vercel.app](save-from-frauds.vercel.app)
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Manage fraudulent entities with unique identifiers.
+*   Associate multiple detailed reports with each entity.
+*   Categorize impacts (e.g. financial loss emotional distress) with metadata.
+*   Query and aggregate data efficiently using Mongoose and MongoDB.
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Install Packages</p>
+
+```
+npm i 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>2. Copy all environment vairbales from .env.example</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<p>3. Run application</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+npm run dev
+```
 
-## Learn More
+  
+  
+<h2>💻 Built with</h2>
 
-To learn more about Next.js, take a look at the following resources:
+Technologies used in the project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-# save-from-frauds
+*   NextJs
+*   MongoDb
+*   Shadecn-Ui
+*   TailwindCss
