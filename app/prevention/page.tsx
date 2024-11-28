@@ -12,24 +12,24 @@ const FraudAndCyberCrimePrevention = () => {
   const scamTypes = [
     {
       type: "Delivery Scams",
-      icon: <Truck className="size-6 text-orange-500" />,
+      icon: <Truck className="size-6" />,
       description:
         "Fake delivery notices or fees to scam personal information.",
     },
     {
       type: "Phishing Emails",
-      icon: <Mail className="size-6 text-blue-500" />,
+      icon: <Mail className="size-6" />,
       description:
         "Emails pretending to be from legitimate sources to steal credentials.",
     },
     {
       type: "Ransomware",
-      icon: <Lock className="size-6 text-purple-500" />,
+      icon: <Lock className="size-6" />,
       description: "Hackers lock your data and demand a ransom for its return.",
     },
     {
       type: "Digital Arrest Scams",
-      icon: <Phone className="size-6 text-yellow-500" />,
+      icon: <Phone className="size-6 " />,
       description:
         "Scammers impersonate police, threatening fake arrests for payment.",
     },

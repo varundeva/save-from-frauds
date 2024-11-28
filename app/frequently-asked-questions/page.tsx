@@ -17,7 +17,7 @@ const page = () => {
         </p>
       </div>
       <div className="lg:flex lg:justify-between">
-        <div className="w-full lg:px-3">
+        <div className="w-full lg:px-2">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>
