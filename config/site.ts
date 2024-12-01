@@ -3,17 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Save from Frauds",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
-  mainNav: [
-    {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "About",
-      href: "/about",
-    },
-  ],
+    "Discover a trusted platform to identify and avoid online scams. Our database of user-reported fraud data helps you verify suspicious emails, phone numbers, and websites, empowering you to stay safe in the digital world.",
   links: {
     twitter: "#",
     github: "https://github.com/varundeva/save-from-frauds",
