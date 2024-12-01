@@ -23,7 +23,6 @@ const Hero = (props: { heroImage: StaticImageData }) => {
           <div className="lg:w-3/7">
             <div className="py-10 lg:py-16">
               <div className="mx-auto max-w-2xl text-center">
-                <p className="">Elevate your projects</p>
                 {/* Title */}
                 <div className="mt-5 max-w-2xl">
                   <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
