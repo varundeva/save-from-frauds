@@ -1,16 +1,19 @@
 import "./globals.css"
-import { StackProvider, StackTheme } from "@stackframe/stack"
-import { stackServerApp } from "../stack"
+
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
-import { ThemeProvider } from "@/components/theme-provider"
+import { GoogleTagManager } from "@next/third-parties/google"
+import { StackProvider, StackTheme } from "@stackframe/stack"
+
+import { siteConfig } from "@/config/site"
+import connectToDatabase from "@/lib/mongoose"
+import { Toaster } from "@/components/ui/toaster"
+import SiteFooter from "@/components/SiteFooter"
 // import { SiteHeader } from "@/components/site-header";
 import { SiteHeader } from "@/components/SiteHeader"
-import { siteConfig } from "@/config/site"
-import SiteFooter from "@/components/SiteFooter"
-import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from "@/components/theme-provider"
 
-import connectToDatabase from "@/lib/mongoose"
+import { stackServerApp } from "../stack"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -48,6 +51,9 @@ export default function RootLayout({
   connectToDatabase()
   return (
     <html lang="en">
+      {process.env.NODE_ENV === "production" && (
+        <GoogleTagManager gtmId="G-RZYMNRZPM6" />
+      )}
       <body
         className={`min-h-screen bg-background ${geistSans.variable} antialiased `}
       >
