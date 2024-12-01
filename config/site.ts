@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Save from Frauds",
   description:
-    "Discover a trusted platform to identify and avoid online scams. Our database of user-reported fraud data helps you verify suspicious emails, phone numbers, and websites, empowering you to stay safe in the digital world.",
+    "Use our trusted platform to identify and avoid online scams. Verify suspicious emails, phone numbers, and websites with our user-reported fraud database.",
   links: {
     twitter: "#",
     github: "https://github.com/varundeva/save-from-frauds",

@@ -9,7 +9,6 @@ import { siteConfig } from "@/config/site"
 import connectToDatabase from "@/lib/mongoose"
 import { Toaster } from "@/components/ui/toaster"
 import SiteFooter from "@/components/SiteFooter"
-// import { SiteHeader } from "@/components/site-header";
 import { SiteHeader } from "@/components/SiteHeader"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     creatorId: "@varundeva",
     description:
-      "Stay safe online with our platform, offering a reliable database of scam-related information. Quickly verify emails, phone numbers, and websites to avoid fraud and protect your personal and financial security.",
+      "Use our trusted platform to identify and avoid online scams. Verify suspicious emails, phone numbers, and websites with our user-reported fraud database.",
     images: ["/save-from-frauds.png"],
   },
 }
