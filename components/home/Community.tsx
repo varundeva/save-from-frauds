@@ -12,9 +12,9 @@ export const Community = () => {
   return (
     <div className="py-3 ">
       <hr className="border-secondary" />
-      <div className="container py-4 sm:py-5">
+      <div className="py-4 sm:py-5">
         <div className="mx-auto lg:w-3/5">
-          <Card className="flex flex-col items-center justify-center border-none bg-background text-center shadow-none">
+          <Card className="flex flex-col items-center  justify-center border-none bg-background p-0 text-center shadow-none">
             <CardHeader>
               <CardTitle className="flex flex-col items-center text-4xl font-bold md:text-5xl">
                 <Icons.discord />
@@ -28,7 +28,7 @@ export const Community = () => {
 
             <CardFooter>
               <Button asChild>
-                <a href="https://discord.com/" target="_blank">
+                <a href="https://discord.gg/RxkX7B6xQH" target="_blank">
                   Join Discord
                 </a>
               </Button>

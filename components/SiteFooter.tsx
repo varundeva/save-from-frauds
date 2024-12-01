@@ -9,10 +9,16 @@ const SiteFooter = () => {
           © 2024 Save From Frauds. All rights reserved.
         </p>
         <nav className="flex gap-4 sm:ml-auto sm:gap-6">
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
+          <Link
+            className="text-xs underline-offset-4 hover:underline"
+            href="/terms-of-service"
+          >
             Terms of Service
           </Link>
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
+          <Link
+            className="text-xs underline-offset-4 hover:underline"
+            href="/privacy-policy"
+          >
             Privacy Policy
           </Link>
         </nav>

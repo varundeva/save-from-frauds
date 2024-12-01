@@ -62,7 +62,7 @@ export function MainNavigation() {
         >
           Report Fraud
         </Link>
-        <Link
+        {/* <Link
           href="/blog"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -72,7 +72,7 @@ export function MainNavigation() {
           )}
         >
           Blog
-        </Link>
+        </Link> */}
         <Link
           href="/frequently-asked-questions"
           className={cn(

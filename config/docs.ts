@@ -46,10 +46,10 @@ export const docsConfig: DocsConfig = {
       title: "Prevention Fraud",
       href: "/prevention",
     },
-    {
-      title: "Blog",
-      href: "/blog",
-    },
+    // {
+    //   title: "Blog",
+    //   href: "/blog",
+    // },
     {
       title: "Frequently Asked Questions",
       href: "/frequently-asked-questions",
