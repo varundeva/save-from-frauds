@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import axios from "axios"
-import { AlertCircle, Info, Search } from "lucide-react"
+import { AlertCircle, Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,14 +13,8 @@ const SearchPage = () => {
   const [results, setResults] = useState<ResultObject[]>([])
   const [loading, setLoading] = useState(false)
 
-  // Example educational tips
-  const tips = [
-    "Be cautious of unsolicited emails or calls asking for personal information.",
-    "Avoid clicking on suspicious links from unknown sources.",
-    "Verify website URLs before entering sensitive data.",
-  ]
   interface ResultObject {
-    id: string
+    _id: string
     entityIdentifier: string
     entityType: string
     createdAt: Date
@@ -79,7 +73,7 @@ const SearchPage = () => {
             results.map((result, index) => {
               return (
                 <SearchResult
-                  id={result?.id}
+                  id={result?._id}
                   entityIdentifier={result?.entityIdentifier}
                   entityType={result?.entityType}
                   createdAt={result?.createdAt}
@@ -87,19 +81,6 @@ const SearchPage = () => {
                 />
               )
             })}
-        </div>
-
-        {/* Educational Content */}
-        <div className="mt-8">
-          <h2 className="mb-4 flex items-center text-xl font-semibold ">
-            <Info className="mr-2 size-5" />
-            Fraud Prevention Tips
-          </h2>
-          <ul className="list-inside list-disc space-y-2 ">
-            {tips.map((tip, index) => (
-              <li key={index}>{tip}</li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>

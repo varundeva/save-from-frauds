@@ -71,12 +71,12 @@ export async function GET(request: Request) {
   try {
     // Extract the query parameter from the URL
     const url = new URL(request.url)
-    const entityId = url.searchParams.get("entityId") // Search parameter for query
+    const entityId = url.searchParams.get("reportId") // Search parameter for query
 
     // If entityIdentifier is not provided, return an error
     if (!entityId) {
       return NextResponse.json(
-        { message: "entityId is required" },
+        { message: "reportId is required" },
         { status: 400 }
       )
     }

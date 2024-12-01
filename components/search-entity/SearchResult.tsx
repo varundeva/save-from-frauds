@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
@@ -11,23 +13,25 @@ const SearchResult = (props: SearchResulrProps) => {
   const { id, entityIdentifier, entityType, createdAt }: SearchResulrProps =
     props
   return (
-    <Card key={id} className="mb-4">
-      <CardContent>
-        <p className="">
-          <span className="font-semibold">Type:</span> {entityType}
-        </p>
-        <p className="mt-1 ">
-          <span className="font-semibold">Value</span> {entityIdentifier}
-        </p>
-        <p className="mt-1 ">
-          <span className="font-semibold">First Reported on:</span>{" "}
-          {new Date(createdAt).toLocaleString()}
-        </p>
+    <Card key={id}>
+      <CardContent className="p-5">
+        <div>
+          <p>
+            <span className="font-semibold">Type:</span> {entityType}
+          </p>
+          <p>
+            <span className="font-semibold">Value</span> {entityIdentifier}
+          </p>
+          <p>
+            <span className="font-semibold">First Reported on:</span>{" "}
+            {new Date(createdAt).toLocaleString()}
+          </p>
+        </div>
       </CardContent>
       <CardFooter>
-        <Button variant="link" size="sm">
-          View Full Details
-        </Button>
+        <Link href={`/report/${id}`} target="_blank">
+          <Button>Show Report Details</Button>
+        </Link>
       </CardFooter>
     </Card>
   )
