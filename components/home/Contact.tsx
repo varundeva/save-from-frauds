@@ -16,13 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
@@ -40,7 +33,7 @@ export const Contact = () => {
       firstName: "",
       lastName: "",
       email: "",
-      subject: "Contact from - Save from Frauds",
+      subject: "",
       message: "",
     },
   })
@@ -48,7 +41,7 @@ export const Contact = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { firstName, lastName, email, subject, message } = values
 
-    const mailToLink = `mailto:dummy@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`
+    const mailToLink = `mailto:savefromfrauds@freesv.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`
 
     window.location.href = mailToLink
   }
@@ -60,9 +53,16 @@ export const Contact = () => {
           <div className="mb-4">
             <h2 className="text-3xl font-bold md:text-4xl">Connect With Us</h2>
           </div>
+          <p className="text-muted-foreground lg:w-5/6">
+            At Save From Frauds, our mission is to raise awareness and help
+            individuals stay safe from fraud in the digital world. We provide
+            information and resources to help you recognize and avoid scams.
+          </p>
           <p className="mb-8 text-muted-foreground lg:w-5/6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            ipsam sint enim exercitationem ex autem corrupti quas tenetur
+            If you have any questions, need assistance, or would like to provide
+            suggestions or feedback, we&apos;re happy to hear from you! Our team
+            is dedicated to supporting you with educational resources and
+            guidance on identifying and avoiding online fraud.
           </p>
           <div className="flex flex-col gap-4">
             <div>
@@ -70,7 +70,7 @@ export const Contact = () => {
                 <Mail />
                 <div className="font-bold">Mail US</div>
               </div>
-              <div>test@gmail.com</div>
+              <div>savefromfrauds[@]freesv.com</div>
             </div>
           </div>
         </div>
@@ -140,31 +140,13 @@ export const Contact = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Subject</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                          >
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select a subject" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="Web Development">
-                                Web Development
-                              </SelectItem>
-                              <SelectItem value="Mobile Development">
-                                Mobile Development
-                              </SelectItem>
-                              <SelectItem value="Figma Design">
-                                Figma Design
-                              </SelectItem>
-                              <SelectItem value="REST API">REST API</SelectItem>
-                              <SelectItem value="FullStack Project">
-                                FullStack Project
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
+                          <FormControl>
+                            <Input
+                              type="text"
+                              placeholder="Subject"
+                              {...field}
+                            />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}

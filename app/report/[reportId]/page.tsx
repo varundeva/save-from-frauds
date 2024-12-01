@@ -80,7 +80,7 @@ const page = async ({ params }: { params: { reportId: string } }) => {
   }
 
   return (
-    <div className="mx-auto min-h-screen space-y-6">
+    <div className="mx-auto mt-5 min-h-screen space-y-6">
       {data.map((entity) => (
         <Card key={entity._id} className="shadow-md">
           <CardHeader>

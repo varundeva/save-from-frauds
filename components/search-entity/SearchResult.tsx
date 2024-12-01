@@ -7,7 +7,7 @@ interface SearchResulrProps {
   id: string
   entityIdentifier: string
   entityType: string
-  createdAt: Date
+  createdAt: string
 }
 const SearchResult = (props: SearchResulrProps) => {
   const { id, entityIdentifier, entityType, createdAt }: SearchResulrProps =

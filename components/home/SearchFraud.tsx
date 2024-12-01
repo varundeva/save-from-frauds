@@ -1,12 +1,4 @@
-import {
-  BriefcaseIcon,
-  FlowerIcon,
-  HeartIcon,
-  LightbulbIcon,
-  MountainSnow,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react"
+import { SearchIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,22 +20,22 @@ const SearchFraud = () => {
           </p>
           <div className="relative mx-auto mt-7 max-w-xl sm:mt-12">
             {/* Form */}
-            <form>
+            <form action="/search" method="get">
               <div className="relative z-10 flex space-x-3 rounded-lg border bg-background p-3 shadow-lg">
                 <div className="flex-[1_0_0%]">
                   <Label htmlFor="article" className="sr-only">
                     Search frauds
                   </Label>
                   <Input
-                    name="article"
+                    name="query"
                     className="h-full"
                     id="article"
                     placeholder="Search frauds"
                   />
                 </div>
                 <div className="flex-[0_0_auto]">
-                  <Button size={"icon"}>
-                    <SearchIcon />
+                  <Button size={"default"} type="submit">
+                    <SearchIcon /> Search
                   </Button>
                 </div>
               </div>
@@ -101,30 +93,46 @@ const SearchFraud = () => {
             {/* End SVG Element */}
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-2 sm:mt-20">
-            <Button variant={"outline"} size={"sm"}>
-              <BriefcaseIcon className="mr-2 h-auto w-3 shrink-0" />
-              Business
-            </Button>
-            <Button variant={"outline"} size={"sm"}>
-              <SettingsIcon className="mr-2 h-auto w-3 shrink-0" />
-              Strategy
-            </Button>
-            <Button variant={"outline"} size={"sm"}>
-              <HeartIcon className="mr-2 h-auto w-3 shrink-0" />
-              Health
-            </Button>
-            <Button variant={"outline"} size={"sm"}>
-              <LightbulbIcon className="mr-2 h-auto w-3 shrink-0" />
-              Creative
-            </Button>
-            <Button variant={"outline"} size={"sm"}>
-              <FlowerIcon className="mr-2 h-auto w-3 shrink-0" />
-              Environment
-            </Button>
-            <Button variant={"outline"} size={"sm"}>
-              <MountainSnow className="mr-2 h-auto w-3 shrink-0" />
-              Adventure
-            </Button>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Fraudulent Activity
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Phishing
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Identity Theft
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Credit Card Fraud
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Financial Scams
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Fraud Prevention
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Scam Alerts
+              </span>
+            </div>
+            <div>
+              <span className="m-1 inline-block rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300">
+                Online Security
+              </span>
+            </div>
           </div>
         </div>
       </div>

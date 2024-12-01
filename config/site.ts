@@ -16,7 +16,7 @@ export const siteConfig = {
   ],
   links: {
     twitter: "#",
-    github: "#",
+    github: "https://github.com/varundeva/save-from-frauds",
   },
 }
 

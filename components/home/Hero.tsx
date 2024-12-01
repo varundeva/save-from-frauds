@@ -1,10 +1,12 @@
+import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 
-const Hero = () => {
+const Hero = (props: { heroImage: StaticImageData }) => {
+  const { heroImage } = props
   return (
-    <div className="py-18 relative overflow-hidden lg:py-24">
+    <div className="relative overflow-hidden py-16 lg:py-24">
       {/* Gradients */}
       <div
         aria-hidden="true"
@@ -41,10 +43,11 @@ const Hero = () => {
                   <Link href="/report">
                     <Button size={"lg"}>Report Frauds</Button>
                   </Link>
-
-                  <Button size={"lg"} variant={"outline"}>
-                    Search Frauds
-                  </Button>
+                  <Link href="/search">
+                    <Button size={"lg"} variant={"outline"}>
+                      Search Frauds
+                    </Button>
+                  </Link>
                 </div>
                 {/* End Buttons */}
               </div>
@@ -54,10 +57,12 @@ const Hero = () => {
 
           {/* Right Section */}
           <div className="lg:w-4/7 mt-10 lg:mt-0">
-            <img
+            <Image
               className="w-full rounded-md"
-              src="https://placehold.co/800x500"
-              alt="Image Description"
+              src={heroImage}
+              alt="Be aware from online frauds"
+              width="500"
+              height={100}
             />
           </div>
           {/* End Right Section */}
