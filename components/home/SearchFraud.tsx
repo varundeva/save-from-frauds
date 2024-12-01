@@ -10,9 +10,9 @@ const SearchFraud = () => {
       <hr className="border-secondary" />
       <div className="py-12 lg:py-8">
         <div className="text-center">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <h2 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
             Knowledge is Your Best Defense
-          </h1>
+          </h2>
           <p className="mt-3 text-xl text-muted-foreground">
             Our application provides you with the tools and information you need
             to recognize potential threats, protect your personal data, and
