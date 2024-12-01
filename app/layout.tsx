@@ -27,8 +27,30 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: "https://savefromfrauds.freesv.com",
+    images: [
+      {
+        url: "/save-from-frauds.png",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+    type: "website",
+  },
   icons: {
     icon: "/favicon.ico",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    creatorId: "@varundeva",
+    description:
+      "Stay safe online with our platform, offering a reliable database of scam-related information. Quickly verify emails, phone numbers, and websites to avoid fraud and protect your personal and financial security.",
+    images: ["/save-from-frauds.png"],
   },
 }
 
