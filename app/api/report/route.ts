@@ -97,13 +97,19 @@ export async function GET(request: Request) {
         },
       },
       {
+        $unwind: {
+          path: "$reports",
+          preserveNullAndEmptyArrays: true, // Keeps FraudEntity even if it has no reports
+        },
+      },
+      {
         $group: {
           _id: "$_id", // Group by the FraudEntity's ID
           entityType: { $first: "$entityType" },
           entityIdentifier: { $first: "$entityIdentifier" },
           createdAt: { $first: "$createdAt" },
           updatedAt: { $first: "$updatedAt" },
-          reports: { $push: "$reports" }, // Collect all reports in an array
+          reports: { $push: "$reports" }, // Collect all reports in a flat array
         },
       },
     ])
