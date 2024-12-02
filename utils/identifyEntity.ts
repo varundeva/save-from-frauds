@@ -4,7 +4,7 @@ export const isQueryValid = (inputString: string): boolean => {
     /^(https?:\/\/|www\.)[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,6})?(\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=]*)?$/
 
   // Regular Expression for Phone Numbers
-  const phonePattern = /^(\+?[1-9]\d{0,3})?[\s-]?(\(?\d{1,4}\)?[\s-]?)?(\d{1,4}[-\s]?\d{1,4}[-\s]?\d{1,4})$/
+  const phonePattern = /^(\+?[1-9]\d{0,3})?[\s-]?(\(?\d{1,4}\)?[\s-]?)?\d{4,14}$/
 
   // Regular Expression for Email Addresses
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
