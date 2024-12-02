@@ -35,3 +35,15 @@ export const FraudEntitySchema = z.object({
   entityType: z.enum(["phone", "email", "website"]),
   entityIdentifier: z.string().min(1, "Entity identifier is required").max(255),
 })
+
+export const ReportFormValidation = z.object({
+  longDescription: z
+    .string()
+    .min(10, "Long description must be at least 10 characters"),
+  shortDescription: z
+    .string()
+    .min(10, "Short Description is Required and Minimum 10 Characters"),
+  impact: z.array(ImpactSchema).optional(),
+  preventionSteps: z.string().optional(),
+  status: z.enum(["open", "resolved", "closed", "progress"]).default("open"),
+})

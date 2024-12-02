@@ -212,6 +212,10 @@ const ReportDataForm: React.FC = () => {
           <Textarea
             {...register("longDescription", {
               required: "Long description is required.",
+              minLength: {
+                value: 10,
+                message: "Minimum 10 Characters",
+              },
             })}
             placeholder="Enter detailed description"
           />
