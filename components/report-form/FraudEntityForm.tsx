@@ -187,7 +187,7 @@ const ShadCNForm: React.FC = () => {
               required: "Entity Identifier is required.",
               validate: (value) => {
                 if (watch("entityType") === "phone") {
-                  const phoneRegex = /^\+?[1-9]\d{1,14}$/ // E.164 format
+                  const phoneRegex = /^(\+?[1-9]\d{0,3})?[\s-]?(\(?\d{1,4}\)?[\s-]?)?\d{4,14}$/
                   return (
                     phoneRegex.test(value) || "Invalid phone number format."
                   )
