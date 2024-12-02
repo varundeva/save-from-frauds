@@ -13,8 +13,10 @@ interface Impact {
   type: string
   details: string
   metadata: {
-    amount: number
-    currency: string
+    stress?: boolean
+    anxiety?: boolean
+    amount?: number
+    currency?: string
   }
 }
 
@@ -39,7 +41,7 @@ interface FraudEntity {
   entityIdentifier: string
   createdAt: string
   updatedAt: string
-  reports: Report[][]
+  reports: Report[]
 }
 
 type FraudData = FraudEntity[]
@@ -95,37 +97,84 @@ const page = async ({ params }: { params: { reportId: string } }) => {
             </p>
           </CardHeader>
           <CardContent>
-            {entity.reports[0].map((report) => (
+            {entity.reports.map((report) => (
               <Card key={report._id} className="mt-2 break-words border">
                 <CardHeader>
                   <CardTitle className="text-lg font-medium">
-                    <span>Short Description: {report.shortDescription}</span>
+                    Detailed Report
                   </CardTitle>
                   <CardDescription className="text-current">
-                    Long Description: {report.longDescription}
+                    <p>
+                      <span className="font-bold">Short Description:</span>
+                      {report.shortDescription}
+                    </p>
+                    <p>
+                      <span className="font-bold">Long Description:</span>
+                      {report.longDescription}
+                    </p>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
                     <h4 className="mb-2 font-medium text-current">Impact:</h4>
                     {report.impact.map((impactItem, index) => (
-                      <div key={index} className="mb-2 rounded border p-2">
-                        <p className="text-sm">Type: {impactItem.type}</p>
-                        <p className="text-sm">Details: {impactItem.details}</p>
-                        <p className="text-sm">
-                          Amount: {impactItem.metadata.amount}{" "}
-                          {impactItem.metadata.currency}
+                      <div key={index} className="mb-4 rounded border p-4">
+                        <p className="text-sm font-medium">
+                          <strong>Type:</strong> {impactItem?.type || "N/A"}
                         </p>
+                        <p className="text-sm">
+                          <strong>Details:</strong>{" "}
+                          {impactItem?.details || "N/A"}
+                        </p>
+
+                        {/* Financial Impact */}
+                        {impactItem?.type === "financial" && (
+                          <p className="text-sm">
+                            <strong>Amount:</strong>{" "}
+                            {impactItem?.metadata?.amount || "N/A"}{" "}
+                            {impactItem?.metadata?.currency || ""}
+                          </p>
+                        )}
+
+                        {/* Emotional Impact */}
+                        {impactItem?.type === "emotional" && (
+                          <div>
+                            <p className="text-sm">
+                              <strong>Stress:</strong>{" "}
+                              {impactItem?.metadata?.stress ? "Yes" : "No"}
+                            </p>
+                            <p className="text-sm">
+                              <strong>Anxiety:</strong>{" "}
+                              {impactItem?.metadata?.anxiety ? "Yes" : "No"}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Reputational Impact */}
+                        {impactItem?.type === "reputational" && (
+                          <p className="text-sm">
+                            <strong>Details:</strong>{" "}
+                            {impactItem?.details || "No details provided."}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>
-                  <p>Prevention Steps: {report.preventionSteps}</p>
-                  <p className="text-sm">
-                    Reported By: {maskEmail(report.reportedBy)}
+                  <p>
+                    <span className="font-bold">Prevention Steps:</span>{" "}
+                    {report.preventionSteps}
                   </p>
-                  <p className="text-sm">Status: {report.status}</p>
                   <p className="text-sm">
-                    Reported At: {new Date(report.reportedAt).toLocaleString()}
+                    <span className="font-bold">Reported By:</span>{" "}
+                    {maskEmail(report.reportedBy)}
+                  </p>
+                  <p className="text-sm">
+                    {" "}
+                    <span className="font-bold">Status:</span> {report.status}
+                  </p>
+                  <p className="text-sm">
+                    <span className="font-bold">Reported At:</span>
+                    {new Date(report.reportedAt).toLocaleString()}
                   </p>
                 </CardContent>
               </Card>
