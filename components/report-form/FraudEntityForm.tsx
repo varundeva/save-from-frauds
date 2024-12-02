@@ -186,24 +186,30 @@ const ShadCNForm: React.FC = () => {
             {...register("entityIdentifier", {
               required: "Entity Identifier is required.",
               validate: (value) => {
+                const trimmedValue = value.trim()
                 if (watch("entityType") === "phone") {
-                  const phoneRegex = /^(\+?[1-9]\d{0,3})?[\s-]?(\(?\d{1,4}\)?[\s-]?)?\d{4,14}$/
+                  const phoneRegex =
+                    /^(\+?[1-9]\d{0,3})?[\s-]?(\(?\d{1,4}\)?[\s-]?)?\d{4,14}$/
                   return (
-                    phoneRegex.test(value) || "Invalid phone number format."
+                    phoneRegex.test(trimmedValue) ||
+                    "Invalid phone number format."
                   )
                 } else if (watch("entityType") === "email") {
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // Basic email validation
-                  return emailRegex.test(value) || "Invalid email format."
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                  return (
+                    emailRegex.test(trimmedValue) || "Invalid email format."
+                  )
                 } else if (watch("entityType") === "website") {
                   const urlRegex =
-                    /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/ // Basic URL validation
+                    /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/
                   return (
-                    urlRegex.test(value) ||
-                    "Invalid website URL format. it should be like https://domain.tld"
+                    urlRegex.test(trimmedValue) ||
+                    "Invalid website URL format. It should be like https://domain.tld"
                   )
                 }
-                return true // Default case
+                return true
               },
+              setValueAs: (value) => value.trim(),
             })}
             placeholder={
               watch("entityType") === "phone"
@@ -213,6 +219,7 @@ const ShadCNForm: React.FC = () => {
                   : "Enter website URL"
             }
           />
+
           {errors.entityIdentifier && (
             <p className="mt-1 text-sm text-red-500">
               {errors?.entityIdentifier?.message}
