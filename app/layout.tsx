@@ -2,8 +2,8 @@ import "./globals.css"
 
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
-import { GoogleTagManager } from "@next/third-parties/google"
 import { StackProvider, StackTheme } from "@stackframe/stack"
+import { GoogleAnalytics } from "react-next-google-tools"
 
 import { siteConfig } from "@/config/site"
 import connectToDatabase from "@/lib/mongoose"
@@ -72,9 +72,11 @@ export default function RootLayout({
   connectToDatabase()
   return (
     <html lang="en">
-      {process.env.NODE_ENV === "production" && (
-        <GoogleTagManager gtmId="G-RZYMNRZPM6" />
-      )}
+      <head>
+        {process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics id="G-RZYMNRZPM6" isNextJs={true} />
+        )}
+      </head>
       <body
         className={`min-h-screen bg-background ${geistSans.variable} antialiased `}
       >
@@ -90,9 +92,9 @@ export default function RootLayout({
                 data-wrapper=""
                 className="border-border/40 dark:border-border"
               >
-                <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
+                <div className="mx-auto w-full border-border/40 dark:border-border min-[1800px]:max-w-screen-2xl min-[1800px]:border-x">
                   <SiteHeader />
-                  <main className="flex-1 container">{children}</main>
+                  <main className="container flex-1">{children}</main>
                   <SiteFooter />
                 </div>
               </div>
