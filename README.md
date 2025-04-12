@@ -73,6 +73,9 @@ If you’re interested in any of the planned features, feel free to contribute o
 
 ---
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=varundeva/save-from-frauds@github)](https://gitads.dev/v1/ad-track?source=varundeva/save-from-frauds@github)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
