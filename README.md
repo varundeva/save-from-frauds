@@ -1,3 +1,4 @@
+<!-- GitAds-Verify: 9SKDIO8P4VUB59JCLYG6S1XXBGKKHXN8 -->
 <h1 align="center" id="title">Save From Frauds</h1>
 
 <p align="center"><img src="https://socialify.git.ci/varundeva/save-from-frauds/image?description=1&amp;descriptionEditable=Save%20From%20Frauds%20identifies%20and%20tracks%20fraudulent%20entities%2C%20linking%20detailed%20reports%20for%20awareness.&amp;font=Source%20Code%20Pro&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;pulls=1&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
